@@ -7,8 +7,8 @@ Implementa modelos de aprendizaje no supervisado mediante técnicas estadística
 
 ## Contenido Temático
 
-* Unidad 1: Reducción de dimensionalidad.
-* Unidad 2: Algoritmos de agrupamiento (clustering).
+* Unidad 1: Algoritmos de agrupamiento.
+* Unidad 2: Reducción de dimensionalidad.
 * Unidad 3: Algoritmos de detección de anomalías.
 
 ## Bibilografía
