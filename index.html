@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aprendizaje No Supervisado</title>
+<meta name="description" content="Materiales del curso de Aprendizaje No Supervisado de la Maestría en Inteligencia Artificial (FMAT): planeación didáctica y presentaciones de las sesiones.">
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+
+<!--
+  Página del curso para GitHub Pages.
+  Para publicar una sesión nueva: copiar su PDF a Sesion_N/ y, en la tarjeta de esa sesión,
+  cambiar el botón desactivado por un enlace como el de la Sesión 1 o 2.
+-->
+
+<header class="portada">
+  <div class="contenedor">
+    <span class="etiqueta">Maestría en Inteligencia Artificial · FMAT</span>
+    <h1>Aprendizaje No Supervisado</h1>
+    <p>Planeación y presentaciones del curso</p>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Secciones">
+  <div class="contenedor">
+    <a href="#curso">Curso</a>
+    <a href="#evaluacion">Evaluación</a>
+    <a href="#introduccion">Introducción</a>
+    <a href="#unidad1">Unidad 1</a>
+    <a href="#unidad2">Unidad 2</a>
+    <a href="#unidad3">Unidad 3</a>
+    <a href="#recursos">Recursos</a>
+  </div>
+</nav>
+
+<main class="contenedor">
+
+  <h2 id="curso">Sobre el curso</h2>
+  <p>Una introducción práctica al aprendizaje automático no supervisado: el descubrimiento de estructura en datos
+     que no tienen etiquetas. El curso cubre dos metodologías básicas, los algoritmos de agrupamiento y la reducción
+     de la dimensionalidad, y una aplicación práctica, la detección de anomalías. Cada sesión combina fundamentos
+     conceptuales con implementación en Python (<code>scikit-learn</code>, <code>pandas</code>, <code>NumPy</code>,
+     <code>Matplotlib</code>).</p>
+  <div class="cuadricula">
+    <div class="dato"><b>14 sesiones</b><span>de 2 horas (28 horas presenciales)</span></div>
+    <div class="dato"><b>3 unidades</b><span>agrupamiento, reducción de dimensionalidad y anomalías</span></div>
+    <div class="dato"><b>3 miniproyectos</b><span>uno al cierre de cada unidad</span></div>
+    <div class="dato"><b>8 créditos</b><span>128 horas en total, primer semestre</span></div>
+  </div>
+  <p class="competencia"><b>Competencia de la asignatura.</b> Implementa modelos de aprendizaje no supervisado mediante
+     técnicas estadísticas y algoritmos computacionales para la resolución de problemas de sectores productivos y
+     sociales, con evidencia de rigurosidad técnica y sensibilidad respecto a su impacto en la toma de decisiones informadas.</p>
+  <p><b>Requisitos recomendados:</b> programación introductoria en Python, estadística y probabilidad básicas,
+     fundamentos de álgebra lineal y familiaridad con NumPy y pandas.</p>
+  <div class="botones">
+    <a class="boton" href="Planeacion_Didactica-Aprendizaje_No_Supervisado.pdf">Planeación didáctica (PDF)</a>
+  </div>
+
+  <h2 id="evaluacion">Evaluación</h2>
+  <table class="tabla">
+    <thead><tr><th>Elemento de evaluación</th><th>Entrega</th><th style="text-align:right">Peso</th></tr></thead>
+    <tbody>
+      <tr><td>Miniproyecto 1 · Algoritmos de agrupamiento</td><td>Sesión 6</td><td class="num">30 %</td></tr>
+      <tr><td>Miniproyecto 2 · Reducción de dimensionalidad</td><td>Sesión 10</td><td class="num">35 %</td></tr>
+      <tr><td>Miniproyecto 3 · Detección de anomalías</td><td>Sesión 14</td><td class="num">35 %</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Sesiones</h2>
+  <div class="mapa">
+    <a class="u0" href="#introduccion"><b>Introducción</b><span>Sesión 1 · Fundamentos</span></a>
+    <a class="u1" href="#unidad1"><b>Unidad 1</b><span>Sesiones 2–6 · Agrupamiento</span></a>
+    <a class="u2" href="#unidad2"><b>Unidad 2</b><span>Sesiones 7–10 · Reducción de dimensionalidad</span></a>
+    <a class="u3" href="#unidad3"><b>Unidad 3</b><span>Sesiones 11–14 · Detección de anomalías</span></a>
+  </div>
+
+  <!-- ========================= Introducción ========================= -->
+  <section class="bloque u0" id="introduccion">
+    <h2>Introducción</h2>
+    <p>Fundamentos del aprendizaje no supervisado.</p>
+
+    <article class="sesion u0" id="sesion1">
+      <header><span class="num">Sesión 1</span><h3>Introducción al aprendizaje no supervisado</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Aprendizaje supervisado vs. no supervisado; tipos de problemas.</li>
+          <li>Preprocesamiento: valores faltantes, escalamiento y estandarización.</li>
+          <li>Medidas de distancia y similitud: euclidiana, Manhattan, coseno y Mahalanobis.</li>
+          <li>La maldición de la dimensionalidad.</li>
+        </ul>
+        <div class="botones">
+          <a class="boton" href="Sesion_1/Sesion1-Introduccion.pdf">Presentación (PDF)</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ========================= Unidad 1 ========================= -->
+  <section class="bloque u1" id="unidad1">
+    <h2>Unidad 1 · Algoritmos de agrupamiento</h2>
+    <p>Sesiones 2 a 6. Cierra con la entrega del miniproyecto 1.</p>
+
+    <article class="sesion u1" id="sesion2">
+      <header><span class="num">Sesión 2</span><h3>k-medias (<i>k-means</i>)</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Algoritmo de Lloyd y función objetivo (inercia).</li>
+          <li>Inicialización k-means++ y múltiples reinicios.</li>
+          <li>Elección de <i>k</i>: método del codo y coeficiente de silueta.</li>
+          <li>Limitaciones: forma esférica, escala y valores atípicos.</li>
+        </ul>
+        <div class="botones">
+          <a class="boton" href="Sesion_2/Sesion2-KMedias.pdf">Presentación (PDF)</a>
+        </div>
+        <p class="nota"><b>Laboratorio:</b> demostración de k-medias con el conjunto Iris: elección de <i>k</i>,
+          interpretación de los centros, comparación con las especies y efecto de estandarizar. Incluido en la presentación.</p>
+      </div>
+    </article>
+
+    <article class="sesion u1" id="sesion3">
+      <header><span class="num">Sesión 3</span><h3>Agrupamiento jerárquico</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Enfoques aglomerativo y divisivo.</li>
+          <li>Criterios de enlace: simple, completo, promedio y Ward.</li>
+          <li>Dendrogramas y corte del árbol.</li>
+          <li>Complejidad computacional y escalabilidad.</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Laboratorio:</b> agrupamiento jerárquico con SciPy e interpretación de dendrogramas.</p>
+      </div>
+    </article>
+
+    <article class="sesion u1" id="sesion4">
+      <header><span class="num">Sesión 4</span><h3>Modelos de mezclas gaussianas (GMM)</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Agrupamiento probabilístico y asignaciones suaves.</li>
+          <li>Algoritmo de esperanza-maximización (EM).</li>
+          <li>Tipos de matriz de covarianza.</li>
+          <li>Selección de modelo con BIC y AIC.</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Laboratorio:</b> comparación de GMM y k-medias en datos con grupos elípticos.</p>
+      </div>
+    </article>
+
+    <article class="sesion u1" id="sesion5">
+      <header><span class="num">Sesión 5</span><h3>Agrupamiento por densidad y espectral</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>DBSCAN: puntos núcleo, frontera y ruido; parámetros ε y <code>min_samples</code>.</li>
+          <li>HDBSCAN y OPTICS.</li>
+          <li>Agrupamiento espectral: grafo de similitud y laplaciano.</li>
+          <li>Grupos no convexos y de densidad variable.</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Laboratorio:</b> comparación de DBSCAN, HDBSCAN y agrupamiento espectral en formas no convexas.</p>
+      </div>
+    </article>
+
+    <article class="sesion u1" id="sesion6">
+      <header><span class="num">Sesión 6</span><h3>Validación e interpretación de agrupamientos <span class="entrega">Miniproyecto 1</span></h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Índices internos: silueta, Davies-Bouldin y Calinski-Harabasz.</li>
+          <li>Índices externos: índice de Rand ajustado (ARI) e información mutua normalizada.</li>
+          <li>Estabilidad de los agrupamientos (remuestreo).</li>
+          <li>Perfilado de grupos y comunicación de resultados.</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Entrega:</b> miniproyecto 1, algoritmos de agrupamiento (30 %).</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ========================= Unidad 2 ========================= -->
+  <section class="bloque u2" id="unidad2">
+    <h2>Unidad 2 · Reducción de dimensionalidad</h2>
+    <p>Sesiones 7 a 10. Cierra con la entrega del miniproyecto 2.</p>
+
+    <article class="sesion u2" id="sesion7">
+      <header><span class="num">Sesión 7</span><h3>Análisis de componentes principales (PCA)</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Varianza, covarianza y direcciones de máxima varianza.</li>
+          <li>Eigendescomposición de la matriz de covarianza.</li>
+          <li>Descomposición en valores singulares (SVD).</li>
+          <li>PCA como minimización del error de reconstrucción.</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Laboratorio:</b> implementación de PCA con NumPy.</p>
+      </div>
+    </article>
+
+    <article class="sesion u2" id="sesion8">
+      <header><span class="num">Sesión 8</span><h3>PCA en la práctica y PCA con kernel</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Varianza explicada, gráfico de sedimentación y elección de componentes.</li>
+          <li>Interpretación de cargas y biplots.</li>
+          <li>PCA con kernel para estructuras no lineales.</li>
+          <li>PCA incremental y aleatorizado para datos grandes.</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Laboratorio:</b> PCA con scikit-learn sobre imágenes de dígitos y Fashion-MNIST.</p>
+      </div>
+    </article>
+
+    <article class="sesion u2" id="sesion9">
+      <header><span class="num">Sesión 9</span><h3>Aprendizaje de variedades (<i>manifold learning</i>)</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Escalamiento multidimensional (MDS) e Isomap.</li>
+          <li>t-SNE: similitudes probabilísticas y perplejidad.</li>
+          <li>Riesgos al interpretar proyecciones no lineales.</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Laboratorio:</b> comparación visual de PCA, MDS, Isomap y t-SNE sobre Fashion-MNIST.</p>
+      </div>
+    </article>
+
+    <article class="sesion u2" id="sesion10">
+      <header><span class="num">Sesión 10</span><h3>Modelos de variables latentes <span class="entrega">Miniproyecto 2</span></h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Análisis factorial y PCA probabilístico.</li>
+          <li>Análisis de componentes independientes (ICA).</li>
+          <li>Comparación de métodos lineales y no lineales.</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Entrega:</b> miniproyecto 2, reducción de dimensionalidad (35 %).</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ========================= Unidad 3 ========================= -->
+  <section class="bloque u3" id="unidad3">
+    <h2>Unidad 3 · Detección de anomalías</h2>
+    <p>Sesiones 11 a 14. Cierra con la entrega del miniproyecto 3.</p>
+
+    <article class="sesion u3" id="sesion11">
+      <header><span class="num">Sesión 11</span><h3>Enfoques estadísticos y basados en densidad</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Tipos de anomalías: puntuales, contextuales y colectivas.</li>
+          <li>Puntuación <i>z</i>, IQR y distancia de Mahalanobis.</li>
+          <li>Estimación de densidad con kernels y GMM.</li>
+          <li>Factor de valor atípico local (LOF).</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Laboratorio:</b> detección de anomalías en conjuntos de ODDS. Planteamiento del miniproyecto 3.</p>
+      </div>
+    </article>
+
+    <article class="sesion u3" id="sesion12">
+      <header><span class="num">Sesión 12</span><h3>Métodos basados en modelos y su evaluación (I)</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Bosque de aislamiento (<i>Isolation Forest</i>).</li>
+          <li>SVM de una clase (<i>One-Class SVM</i>).</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Laboratorio:</b> comparativa de detectores con PyOD en un conjunto de fraude con tarjetas.</p>
+      </div>
+    </article>
+
+    <article class="sesion u3" id="sesion13">
+      <header><span class="num">Sesión 13</span><h3>Métodos basados en modelos y su evaluación (II)</h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Error de reconstrucción con PCA y autoencoders.</li>
+          <li>Evaluación con pocas etiquetas: precisión@k, curva PR y ROC-AUC.</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Laboratorio:</b> comparativa de detectores con PyOD en un conjunto de fraude con tarjetas.</p>
+      </div>
+    </article>
+
+    <article class="sesion u3" id="sesion14">
+      <header><span class="num">Sesión 14</span><h3>Flujo integrador y cierre del curso <span class="entrega">Miniproyecto 3</span></h3></header>
+      <div class="cuerpo">
+        <p><b>Temas:</b></p>
+        <ul>
+          <li>Diseño del flujo completo: preparación, reducción, agrupamiento y anomalías.</li>
+          <li>Selección e interpretación de métricas.</li>
+          <li>Impacto de los resultados en la toma de decisiones.</li>
+          <li>Ética y sesgos en el análisis no supervisado.</li>
+          <li>Síntesis del curso y temas avanzados.</li>
+        </ul>
+        <div class="botones"><a class="boton" aria-disabled="true">Presentación: próximamente</a></div>
+        <p class="nota"><b>Entrega:</b> miniproyecto 3, detección de anomalías (35 %).</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ========================= Recursos ========================= -->
+  <h2 id="recursos">Software y recursos</h2>
+  <div class="recursos">
+    <section>
+      <h3>Software</h3>
+      <ul>
+        <li>Python 3.10 o posterior</li>
+        <li>scikit-learn, pandas, NumPy, SciPy, Matplotlib, seaborn</li>
+        <li>PyOD y PyTorch (autoencoders)</li>
+        <li>Jupyter Notebook / JupyterLab, VS Code o Google Colab</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Documentación y datos</h3>
+      <ul>
+        <li><a href="https://scikit-learn.org/stable/unsupervised_learning.html">Guía de scikit-learn: aprendizaje no supervisado</a></li>
+        <li><a href="https://pyod.readthedocs.io/">Documentación de PyOD</a></li>
+        <li><code>sklearn.datasets</code>, Fashion-MNIST, <a href="https://archive.ics.uci.edu/">Repositorio UCI</a>,
+            <a href="https://odds.cs.stonybrook.edu/">ODDS</a>, Kaggle, datos abiertos de INEGI y datos.gob.mx</li>
+      </ul>
+    </section>
+  </div>
+
+  <h3>Bibliografía básica</h3>
+  <ul class="bibliografia">
+    <li>James, G., Witten, D., Hastie, T., Tibshirani, R. y Taylor, J. (2023). <i>An Introduction to Statistical Learning:
+        With Applications in Python</i>. Springer. ISBN 978-3-031-38747-0. (Cap. 12)</li>
+    <li>Bishop, C. M. (2006). <i>Pattern Recognition and Machine Learning</i>. Springer. ISBN 978-0387310732. (Caps. 9 y 12)</li>
+    <li>Murphy, K. P. (2022). <i>Probabilistic Machine Learning: An Introduction</i>. MIT Press. ISBN 978-0262046824. (Caps. 20 y 21)</li>
+  </ul>
+  <h3>Bibliografía complementaria</h3>
+  <ul class="bibliografia">
+    <li>Hinton, G. E. y Sejnowski, T. J. (Eds.) (1999). <i>Unsupervised Learning: Foundations of Neural Computation</i>.
+        MIT Press. ISBN 978-0262581684.</li>
+  </ul>
+</main>
+
+<footer>
+  <div class="contenedor">Material del curso de Aprendizaje No Supervisado · Maestría en Inteligencia Artificial,
+    Facultad de Matemáticas. Los temas pueden ajustarse al ritmo del grupo.</div>
+</footer>
+
+</body>
+</html>
