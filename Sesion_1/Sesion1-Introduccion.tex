@@ -155,9 +155,8 @@
     \node[b=gray] (s0) {\textbf{Introducción}\\S1};
     \node[b=azul,right=0.5cm of s0] (u1) {\textbf{Unidad 1}\\Algoritmos de\\agrupamiento\\S2--S6};
     \node[b=naranja,right=0.5cm of u1] (u2) {\textbf{Unidad 2}\\Reducción de\\dimensionalidad\\S7--S10};
-    \node[b=red!70!black,right=0.5cm of u2] (u3) {\textbf{Unidad 3}\\Detección de\\anomalías\\S11--S12};
-    \node[b=verde,right=0.5cm of u3] (p) {\textbf{Proyecto}\\\textbf{integrador}\\S13--S14};
-    \foreach \a/\b in {s0/u1,u1/u2,u2/u3,u3/p} \draw[->,thick,marino] (\a) -- (\b);
+    \node[b=red!70!black,right=0.5cm of u2] (u3) {\textbf{Unidad 3}\\Detección de\\anomalías\\S11--S14};
+    \foreach \a/\b in {s0/u1,u1/u2,u2/u3} \draw[->,thick,marino] (\a) -- (\b);
   \end{tikzpicture}
   \vspace{10pt}
   \begin{itemize}
@@ -173,9 +172,9 @@
     \toprule
     \textbf{Elemento de evaluación} & \textbf{Peso}\\
     \midrule
-    Miniproyecto -- Algoritmos de agrupamiento & 35\,\% \\
-    Miniproyecto -- Reducción de dimensionalidad & 35\,\% \\
-    Miniproyecto -- Detección de anomalías (sesión 14) & 30\,\% \\
+    Miniproyecto -- Algoritmos de agrupamiento & 30\,\% \\
+    Miniproyecto -- Reducción de dimensionalidad & 30\,\% \\
+    Miniproyecto -- Detección de anomalías & 35\,\% \\
     \bottomrule
   \end{tabular}
   \vspace{8pt}
@@ -193,7 +192,7 @@
         \item Python 3.10+, JupyterLab o Google Colab
         \item NumPy, SciPy, pandas
         \item scikit-learn, Matplotlib, seaborn
-        \item umap-learn, PyOD, PyTorch
+        \item PyOD, PyTorch
         \item Git y GitHub (repositorio de notebooks)
       \end{itemize}
     \end{block}
@@ -254,11 +253,11 @@
     \item \textbf{No supervisado como preprocesamiento}: reducir dimensión o crear rasgos
           (pertenencia a un grupo, puntuación de anomalía) para un modelo supervisado.
   \end{itemize}
-  \vspace{6pt}
-  \begin{exampleblock}{Pregunta para discutir}
-    Un banco tiene millones de transacciones y sólo unas cientos marcadas como fraude.
-    ¿Qué enfoque usarías y por qué?
-  \end{exampleblock}
+ % \vspace{6pt}
+ % \begin{exampleblock}{Pregunta para discutir}
+ %   Un banco tiene millones de transacciones y sólo unas cientos marcadas como fraude.
+ %   ¿Qué enfoque usarías y por qué?
+ % \end{exampleblock}
 \end{frame}
 
 % =====================================================================
@@ -267,7 +266,7 @@
 
 \begin{frame}{Tareas principales}
   \renewcommand{\arraystretch}{1.35}
-  \begin{tabular}{@{}>{\bfseries}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}@{}}
+  \begin{tabular}{@{}>{\bfseries}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}@{}}
     \toprule
     Tarea & Pregunta & Ejemplo \\
     \midrule
@@ -336,27 +335,27 @@
 \section{Preprocesamiento}
 % =====================================================================
 
-\begin{frame}{Valores faltantes}
-  \textbf{Mecanismos} (Rubin):
-  \begin{itemize}
-    \item \textbf{MCAR}: falta completamente al azar.
-    \item \textbf{MAR}: depende de otras variables observadas.
-    \item \textbf{MNAR}: depende del propio valor faltante (p.\ ej., ingresos altos no reportados).
-  \end{itemize}
-  \vspace{4pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.3\textwidth}>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
-    \toprule
-    \textbf{Estrategia} & \textbf{Comentario}\\
-    \midrule
-    Eliminar filas o columnas & Simple; pierde información y puede sesgar si no es MCAR \\
-    Media / mediana / moda & Rápida; reduce la varianza y distorsiona correlaciones \\
-    kNN (\texttt{KNNImputer}) & Usa observaciones similares; depende de la distancia \\
-    Iterativa (\texttt{IterativeImputer}) & Modela cada variable a partir de las demás \\
-    Indicador de faltante & Conserva la información de que el dato faltaba \\
-    \bottomrule
-  \end{tabular}
-\end{frame}
+%\begin{frame}{Valores faltantes}
+%  \textbf{Mecanismos} (Rubin):
+%  \begin{itemize}
+%    \item \textbf{MCAR}: falta completamente al azar.
+%    \item \textbf{MAR}: depende de otras variables observadas.
+%    \item \textbf{MNAR}: depende del propio valor faltante (p.\ ej., ingresos %altos no reportados).
+%  \end{itemize}
+%  \vspace{4pt}
+%  \renewcommand{\arraystretch}{1.25}
+%  %\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.3\textwidth}>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
+%    \toprule
+%    \textbf{Estrategia} & \textbf{Comentario}\\
+%    \midrule
+%    Eliminar filas o columnas & Simple; pierde información y puede sesgar si  no es MCAR \\
+%    Media / mediana / moda & Rápida; reduce la varianza y distorsiona correlaciones \\
+%    kNN (\texttt{KNNImputer}) & Usa observaciones similares; depende de la distancia \\ 
+%    Iterativa (\texttt{IterativeImputer}) & Modela cada variable a partir de las demás \\
+%     Indicador de faltante & Conserva la información de que el dato faltaba \\
+%     \bottomrule
+%   \end{tabular}
+% \end{frame}
 
 \begin{frame}{¿Por qué escalar? Un ejemplo con k-medias}
   \centering
@@ -367,9 +366,11 @@
   \end{itemize}
 \end{frame}
 
+
+
 \begin{frame}{Transformaciones de escala}
-  \renewcommand{\arraystretch}{1.1}
-  \small
+  \renewcommand{\arraystretch}{1.5}
+  \footnotesize
   \begin{tabular}{@{}lll@{}}
     \toprule
     \textbf{Método} & \textbf{Fórmula} & \textbf{Propiedad}\\
@@ -382,7 +383,7 @@
   \end{tabular}
   \vspace{2pt}
   \centering
-  \includegraphics[width=0.8\textwidth]{escaladores}
+  \includegraphics[height=0.4\textheight]{escaladores}
 \end{frame}
 
 \begin{frame}{Otras transformaciones}
@@ -541,68 +542,7 @@
   {\small Ejemplo: para tener 10 puntos por eje en $[0,1]^d$ se necesitan $10^d$ observaciones.}
 \end{frame}
 
-% =====================================================================
-\section{Laboratorio}
-% =====================================================================
-
-\begin{frame}[fragile]{Configuración del entorno}
-\begin{lstlisting}[language=bash]
-# Opcion A: conda
-conda create -n ans python=3.12
-conda activate ans
-pip install numpy scipy pandas scikit-learn matplotlib seaborn jupyterlab umap-learn pyod
-
-# Opcion B: uv
-uv venv && source .venv/bin/activate
-uv pip install numpy scipy pandas scikit-learn matplotlib seaborn jupyterlab umap-learn pyod
-
-# Verificar
-python -c "import sklearn; print(sklearn.__version__)"
-jupyter lab
-\end{lstlisting}
-  \small Alternativa sin instalación: Google Colab. Crear un repositorio en GitHub para los notebooks del curso.
-\end{frame}
-
-\begin{frame}[fragile]{Exploración de un conjunto de datos sin etiquetas}
-\begin{lstlisting}
-import pandas as pd
-from sklearn.datasets import load_wine
-from sklearn.pipeline import make_pipeline
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import pairwise_distances
-
-df = load_wine(as_frame=True).data           # ignoramos la etiqueta a proposito
-print(df.shape); print(df.describe().T)      # escalas muy distintas
-print(df.isna().mean())                      # proporcion de faltantes
-
-prep = make_pipeline(SimpleImputer(strategy="median"), StandardScaler())
-X = prep.fit_transform(df)
-
-for metrica in ["euclidean", "manhattan", "cosine"]:
-    D = pairwise_distances(X, metric=metrica)
-    print(metrica, D.mean().round(2))
-
-df.corr().style.background_gradient(cmap="coolwarm")  # correlaciones
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}{Actividad y tarea}
-  \begin{block}{En clase}
-    \begin{enumerate}
-      \item Instalar el entorno y crear el repositorio de notebooks.
-      \item Explorar el conjunto de vinos: escalas, faltantes, correlaciones, histogramas.
-      \item Comparar los 5 vecinos más cercanos de una observación con y sin estandarizar, usando distancia euclidiana y coseno.
-    \end{enumerate}
-  \end{block}
-  \begin{exampleblock}{Para la sesión 2}
-    \begin{itemize}
-      \item Subir el notebook de la sesión al repositorio.
-      \item Leer: James et al.\ (2023), cap.~12.1 y 12.4.1 (k-medias); Bishop (2006), cap.~9.1.
-      \item Repasar distancia euclidiana y estandarización: k-medias depende de ambas.
-    \end{itemize}
-  \end{exampleblock}
-\end{frame}
+% \input{Laboratorio}
 
 \begin{frame}{Resumen}
   \begin{itemize}
