@@ -24,21 +24,13 @@ No hay que anotar las presentaciones en ningún lado. El script las busca:
 
 Si un PDF tiene otro nombre, se indica en la sesión con `presentacion = "ruta/al/archivo.pdf"`.
 
-## Publicar materiales nuevos
+## Actualizar la página
 
-1. Compilar la presentación y dejar el PDF como `Sesion_N/SesionN-Tema.pdf`.
-2. Si cambiaron temas, títulos o la evaluación, editar `sitio/contenido.toml`.
-3. (Opcional) Revisar la página en local:
-   ```
-   python3 sitio/construir.py
-   ```
-   y abrir `_site/index.html` en el navegador. El script lista qué sesiones tienen
-   presentación y avisa si algún archivo todavía no está en git.
-4. Hacer commit y push a `main`. En uno o dos minutos la página se actualiza sola.
+Ver la guía paso a paso: **[Como_actualizar_la_pagina.md](Como_actualizar_la_pagina.md)**.
 
-Para ver el avance de la publicación: pestaña **Actions** del repositorio, o
-`gh run list --workflow pagina.yml`. Para volver a publicar sin cambios: `gh workflow run pagina.yml`.
+En resumen: compilar el PDF como `Sesion_N/SesionN-Tema.pdf`, hacer commit y push a `main`.
+La página se reconstruye y publica sola en uno o dos minutos.
 
-## Configuración (una sola vez)
+## Configuración
 
-En GitHub: **Settings → Pages → Source: GitHub Actions**.
+GitHub Pages está configurado con **Settings → Pages → Source: GitHub Actions** (ya hecho).

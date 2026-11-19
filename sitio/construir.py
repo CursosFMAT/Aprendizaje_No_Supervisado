@@ -245,9 +245,44 @@ def pagina(datos, tarjetas_por_unidad):
 # ----------------------------------------------------------------------
 # Construcción
 # ----------------------------------------------------------------------
+REQUERIDOS = {
+    "curso": ["titulo", "etiqueta", "subtitulo", "descripcion", "competencia", "requisitos",
+              "planeacion_pdf", "pie", "repositorio", "rama"],
+    "unidades": ["id", "nombre", "titulo", "resumen", "mapa", "color"],
+    "sesiones": ["numero", "unidad", "titulo", "temas"],
+    "evaluacion": ["elemento", "entrega", "peso"],
+    "datos": ["titulo", "texto"],
+}
+
+
+def leer_contenido():
+    """Lee contenido.toml y revisa que tenga los campos necesarios."""
+    try:
+        with open(SITIO / "contenido.toml", "rb") as f:
+            datos = tomllib.load(f)
+    except tomllib.TOMLDecodeError as e:
+        raise Error(f"sitio/contenido.toml tiene un error de sintaxis: {e}. "
+                    "Revisar comillas, comas y corchetes en esa línea.")
+    if "curso" not in datos:
+        raise Error("sitio/contenido.toml: falta la sección [curso]")
+    for campo in REQUERIDOS["curso"]:
+        if campo not in datos["curso"]:
+            raise Error(f"sitio/contenido.toml: falta el campo «{campo}» en [curso]")
+    for seccion in ("unidades", "sesiones"):
+        if not datos.get(seccion):
+            raise Error(f"sitio/contenido.toml: no hay ninguna entrada [[{seccion}]]")
+    for seccion in ("unidades", "sesiones", "evaluacion", "datos"):
+        for i, entrada in enumerate(datos.get(seccion, []), start=1):
+            for campo in REQUERIDOS[seccion]:
+                if campo not in entrada:
+                    donde = (f"la sesión {entrada['numero']}" if "numero" in entrada
+                             else f"la entrada {i} de [[{seccion}]]")
+                    raise Error(f"sitio/contenido.toml: falta el campo «{campo}» en {donde}")
+    return datos
+
+
 def construir(salida):
-    with open(SITIO / "contenido.toml", "rb") as f:
-        datos = tomllib.load(f)
+    datos = leer_contenido()
     curso = datos["curso"]
     unidades = {u["id"]: u for u in datos["unidades"]}
     for u in unidades.values():
