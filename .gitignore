@@ -15,3 +15,6 @@ ClaudeHowto.md
 
 # Python
 __pycache__/
+
+# Página web generada por sitio/construir.py
+_site/
