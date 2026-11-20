@@ -137,7 +137,9 @@ temas = [
   "Dendrogramas y corte del árbol.",
   "Complejidad computacional y escalabilidad.",
 ]
-laboratorio = "agrupamiento jerárquico con SciPy e interpretación de dendrogramas."
+laboratorio = """demostración con el conjunto Iris y SciPy: construcción del árbol, elección del corte, \
+comparación de los criterios de enlace, lectura del dendrograma y comparación con k-medias. Incluido en la \
+presentación y en el notebook."""
 
 [[sesiones]]
 numero = 4
